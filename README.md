@@ -4,10 +4,10 @@ Taskflow is the innovative online platform for task and project management, empo
 
 ## Project Components
 
-* [ER: Requirements Specification](https://git.fe.up.pt/lbaw/lbaw2324/lbaw2323/-/wikis/ER:-Requirements-Specification-Component)
-* [EBD: Database Specification](https://git.fe.up.pt/lbaw/lbaw2324/lbaw2323/-/wikis/ebd)
-* [EAP: Architecture Specification and Prototype](https://git.fe.up.pt/lbaw/lbaw2324/lbaw2323/-/wikis/eap)
-* [PA: Product and Presentation](https://git.fe.up.pt/lbaw/lbaw2324/lbaw2323/-/wikis/pa)
+* [ER: Requirements Specification](docs/ER_Requirements_Specification_Component.md)
+* [EBD: Database Specification](docs/ebd.md)
+* [EAP: Architecture Specification and Prototype](docs/eap.md)
+* [PA: Product and Presentation](docs/pa.md)
 
 ## Artefacts Checklist
 
