@@ -1,0 +1,269 @@
+body {
+    overflow: hidden;
+  }
+  
+.wrapper {
+    padding: 1rem;
+    overflow-y: auto;
+    width: 100%;
+    height: 100dvh;
+}
+.content {
+    margin-inline: auto;
+    width: 95%;
+    padding-bottom: 3rem;
+}
+
+.content h1 {
+    font-size: 3rem;
+}
+
+.top-of-table {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-wrap: wrap;
+}
+
+.top-of-table input {
+    box-sizing: border-box;
+    min-width: 15rem;
+    width: 15rem;
+    padding-left: 1rem;
+    border: 1px solid var(--light-light-grey);
+}
+.top-of-table button {
+    border-radius: 25px;
+    height: 2.5rem;
+}
+
+#add-task-btn {
+    margin-left: 1rem;
+}
+
+.top-of-table input {
+    border-radius: 25px 0 0 25px;
+    height: 2.5rem;
+}
+
+.delete-task-btn {
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family-poppins);
+    width: fit-content;
+}
+
+.top-of-table button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: fit-content;
+    background-color: var(--blue-accent);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+    padding-inline: 1rem;
+}
+
+.search-form {
+    display: flex;
+    margin: 0;
+}
+
+.search-form button {
+    border-radius: 0 25px 25px 0 !important;
+}
+
+.search-form button svg {
+    width: 70%;
+    aspect-ratio: 1/1;
+}
+
+.content table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+.content th {
+    color: white;
+    background-color: var(--blue-accent);
+}
+
+.content th,
+.content td {
+  border-bottom: 2px solid white;
+  border-right: 1px solid white;
+  padding: 0.5rem;
+  text-align: start;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content td.assignees {
+    overflow: visible;
+}
+
+.content .title {
+    max-width: 10vw;
+}
+
+.content .description {
+    max-width: 20vw;
+}
+
+.content table .priority, 
+.content table .status,
+.content table .assignees,
+.content table .view{
+  max-width: 10vw;
+}
+
+.content table .view a {
+    color: white;
+    width: 50%;
+    min-width: fit-content;
+    background-color: var(--light-purple);
+    text-align: center;
+    padding: 0.2rem 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+div[data-priority = "High"],
+div[data-priority = "Medium"],
+div[data-priority = "Low"] {
+  color: white;
+  width: 50%;
+  min-width: fit-content;
+  padding: 0.2rem 0.7rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 600;
+}
+div[data-priority = "High"] {
+  background-color: red;
+}
+div[data-priority = "Medium"] {
+  background-color: orange;
+}
+div[data-priority = "Low"] {
+  background-color: blue;
+}
+
+.container-assigned {
+    display: flex;
+    align-items: center;
+}
+
+
+.team-image-container {
+    position: relative;
+  }
+  
+.team-image::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    background-color: var(--blue-accent);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+  
+.team-image-container:hover .team-image::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.team-image {
+    overflow: hidden;
+    width: 35px;
+    height: auto;
+}
+.team-image > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.no-task-assigned {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--blue-accent);
+    text-align: center;
+    margin-top: 20dvh;
+}
+
+/* Modal to add task*/
+#modal-add-task {
+    width: 30%;
+    min-width: 350px;
+    border: none;
+    padding: 2rem;
+    border-radius: 40px; 
+}
+
+#modal-add-task::backdrop {
+    background-color: black;
+    opacity: 30%;
+}
+
+#modal-add-task form {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-add-task form h2 {
+    text-align: center;
+}
+
+#modal-add-task form label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+#modal-add-task form textarea {
+    resize: none;
+    overflow-y: auto;
+    height: 4rem;
+}
+
+#modal-add-task input, #modal-add-task textarea, #modal-add-task select {
+    background-color: var(--light-blue);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+}
+
+#modal-add-task form input[type="submit"] {
+    margin-inline: auto;
+    width: 60%;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--light-purple);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-family: var(--font-family-poppins);
+    font-weight: 600;
+    margin-top: 2rem;
+    cursor: pointer;
+}

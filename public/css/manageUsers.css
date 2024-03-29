@@ -1,0 +1,249 @@
+/* Actual content */
+body {
+    overflow: hidden;
+}
+
+.wrapper {
+    padding: 1rem;
+    overflow-y: auto;
+    width: 100%;
+    height: 100dvh;
+}
+.content {
+    margin-inline: auto;
+    width: 95%;
+    padding-bottom: 3rem;
+}
+
+.content h1 {
+    font-size: 3rem;
+}
+
+.top-of-table {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.top-of-table input {
+    min-width: 15rem;
+    width: 15rem;
+    padding-left: 1rem;
+    border: 1px solid var(--light-light-grey)
+}
+
+.top-of-table button {
+    border-radius: 25px;
+    height: 2.5rem;
+}
+
+.top-of-table input {
+    border-radius: 25px 0 0 25px;
+    height: 2.5rem;
+}
+
+.top-of-table button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: fit-content;
+    background-color: var(--blue-accent);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+    padding-inline: 1rem;
+}
+
+.content table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+.content th, .content td {
+    border-bottom: 2px solid white;
+    border-right: 1px solid white;
+    padding: 0.5rem;
+    text-align: start;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content th {
+    color: white;
+    background-color: var(--blue-accent);
+}
+
+.content table .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content table .actions form {
+    margin: 0;
+    margin-left: 1rem;
+}
+
+.delete-user-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 50%;
+    background-color: red;
+    border: none;
+    margin: 0;
+    min-width: fit-content;
+}
+
+.delete-user-btn svg {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
+.content table .actions .btn-edit {
+    border-radius: 20px;
+    background-color: var(--blue-accent);
+    padding: 0.3rem 0.8rem;
+    color: white;
+
+}
+
+.search-form {
+    display: flex;
+    margin: 0;
+}
+
+.search-form button {
+    border-radius: 0 25px 25px 0 !important;
+}
+
+.search-form button svg {
+    width: 70%;
+    aspect-ratio: 1/1;
+}
+
+
+/* Modal to add task*/
+#modal-add-user {
+    border-radius: 10px;
+}
+
+#modal-add-user > form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 35vw;
+    min-width: 400px;
+    aspect-ratio: 1 / 1;
+    font-weight: 600;
+}
+
+#modal-add-user form h2 {
+    text-align: center;
+    color: var(--blue-accent);
+}
+
+#modal-add-user form label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+#modal-add-user form input[type="submit"] {
+    margin-inline: auto;
+    width: 60%;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--dark-blue);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-family: var(--font-family-poppins);
+    font-weight: 600;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+#modal-add-user select {
+    padding: 0.1rem 0.2rem;
+    width: 30%;
+}
+
+.team-image-container {
+    position: relative;
+}
+
+.team-image {
+    overflow: hidden;
+    width: 35px;
+    height: auto;
+}
+
+.circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.team-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.user-info{
+    display: flex;
+
+    gap: 1rem;
+}
+
+.edit-info-modal {
+    max-width: 450px;
+    width: 30vw;
+    min-width: 300px;
+    min-height: 400px;
+    aspect-ratio: 1/1;
+}
+
+.edit-info-modal div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.edit-info-modal h2 {
+    color: var(--blue-accent);
+}
+
+.edit-info-modal .edit_user {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+}
+
+.edit-info-modal form label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.edit-info-modal form input[type="submit"] {
+    background-color: var(--dark-blue);
+    color: white;
+    width: 40%;
+    margin-inline: auto;
+    margin-top: auto;
+    font-family: var(--font-family-poppins);
+    font-weight: bold;
+    border-radius: 25px;
+    height: 3rem;
+}

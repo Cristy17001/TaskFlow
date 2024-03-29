@@ -1,0 +1,388 @@
+openapi: 3.0.0
+
+info:
+  version: '1.0'
+  title: 'LBAW Taskflow Web API'
+  description: 'Web Resources Specification (A7) for Taskflow'
+
+servers:
+- url: https://lbaw2323.lbaw.fe.up.pt/
+  description: Production server
+
+externalDocs:
+  description: Find more info here.
+  url: https://git.fe.up.pt/lbaw/lbaw2324/lbaw2323/-/wikis/eap
+
+
+tags:
+  - name: 'M01: Authentication and Individual Profile'
+  - name: 'M02: Project Management'
+  - name: 'M03: Task Management'
+  - name: 'M04: User Administration and Static pages'
+
+paths:
+  /login:
+    get:
+      operationId: R101
+      summary: 'R101: Login Form'
+      description: 'Provide login form. Access: PUB'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      responses:
+        '200':
+          description: 'Ok. Show Log-in UI'
+        '302':
+          description: 'Redirect if user is logged in.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Authenticated. Redirect to homePage.'
+                  value: '/home'
+
+
+    post:
+      operationId: R102
+      summary: 'R102: Login Action'
+      description: 'Processes the login form submission. Access: PUB'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:         # <!--- form field name
+                  type: string
+                password:      # <!--- form field name
+                  type: string
+              required:
+                  - email
+                  - password
+
+      responses:
+        '302':
+          description: 'Redirect after processing the login credentials.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successful authentication. Redirect to homePage.'
+                  value: '/home'
+                302Error:
+                  description: 'Failed authentication. Redirect to login form.'
+                  value: '/login'
+
+  /logout:
+    get:
+      operationId: R103
+      summary: 'R103: Logout Action'
+      description: 'Logout the current authenticated user. Access: USR ADM'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      responses:
+        '302':
+          description: 'Redirect after processing logout.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successful logout. Redirect to login page.'
+                  value: '/login'
+
+  /register:
+    get:
+      operationId: R104
+      summary: 'R104: Register Form'
+      description: 'Provide new user registration form. Access: PUB'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      responses:
+        '200':
+          description: 'Ok. Show register UI'
+        
+
+    post:
+      operationId: R105
+      summary: 'R105: Register Action'
+      description: 'Processes the new user registration form submission. Access: USR'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+                - name
+                - email
+                - password
+                - username
+      responses:
+        '302':
+          description: 'Redirect after processing the new user information.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Successful authentication. Redirect to home page.'
+                  value: '/home'
+                302Failure:
+                  description: 'Failed authentication. Redirect to register form.'
+                  value: '/register'
+  /profile:
+    get:
+      operationId: R106
+      summary: 'R106: View own profile'
+      description: 'View the users own profile.'
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      responses:
+        '200':
+          description: 'Ok. Show User Profile'
+        
+
+    /profile/{id}/edit:
+      get:
+        operationId: R107
+        summary: 'R107: Edit Profile'
+        description: Retrieve user information for editing the profile.
+        tags:
+          - 'M01: Authentication and Individual Profile'
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: 'User ID for the profile to edit.'
+            schema:
+              type: integer
+      responses:
+        '200':
+          description: 'Ok. Show Edit Profile UI.'
+          content:
+            text/html:
+              example: 'Render the HTML form for editing the profile.'
+        '302':
+          description: 'Redirect if user is not found.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Redirect:
+                  description: 'User not found. Redirect to /home.'
+                  value: '/home'
+
+
+  /profile/{id}/update:
+    post:
+      operationId: R108
+      summary: 'R108: Update Action'
+      description: Update user's profile.
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'User ID for the profile to update.'
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User full name.'
+                username:
+                  type: string
+                  description: 'User username.'
+                email:
+                  type: string
+                  format: email
+                  description: 'User email address.'
+              required:
+                - name
+                - username
+                - email
+      responses:
+        '302':
+          description: 'Redirect on successful profile update.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Redirect:
+                  description: 'Profile updated successfully. Redirect to /profile.'
+        
+        '404':
+          description: 'Not Found. User not found.'
+          content:
+            application/json:
+              example:
+                message: 'User not found.'
+
+  /profile/{id}/delete:
+    delete:
+      operationId: R109
+      summary: 'R109: Delete Profile'
+      description: Remove the specified user from storage.
+      tags:
+        - 'M01: Authentication and Individual Profile'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'User ID for the profile to delete.'
+          schema:
+            type: integer
+        - name: admin
+          in: query
+          required: false
+          description: 'Flag indicating if the action is performed by an admin (1) or not (0).'
+          schema:
+            type: integer
+            enum:
+              - 0
+              - 1
+      responses:
+        '204':
+          description: 'No Content. User deleted successfully.'
+        '404':
+          description: 'Not Found. User not found.'
+          content:
+            application/json:
+              example:
+                message: 'User not found. Redirect to /home'
+        '302':
+          description: 'Redirect on successful user deletion.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Redirect:
+                  description: 'User deleted successfully. Redirect to /list_users if admin, or / if not admin.'
+
+  /projects:
+    get:
+      operationId: R201
+      summary: 'R201: Store Project'
+      description: Retrieve projects for the authenticated user.
+      tags:
+        - 'M02: Project Management'
+      responses:
+        '200':
+          description: 'Ok. Show User Projects.'
+        '302':
+          description: 'Redirect if user is not logged in.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Redirect:
+                  description: 'User not logged in. Redirect to /login.'
+  
+  /projects/store:
+    post:
+      operationId: R202
+      summary: 'R202: Store Project'
+      description: Store a new project for the authenticated user.
+      tags:
+        - 'M02: Project Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Project name.'
+                  example: 'New Project'
+                description:
+                  type: string
+                  description: 'Project description.'
+                  example: 'This is a new project.'
+              required:
+                - name
+                - description
+      responses:
+        '302':
+          description: 'Redirect on successful project creation.'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Redirect:
+                  description: 'Project stored successfully. Redirect to /list_projects.'
+  
+  /users/{id}/tasks:
+
+    get:
+      summary: 'R301: List Tasks'
+      description: Retrieve a list of all tasks.
+      operationId: R301
+      tags:
+        - 'M03: Task Management'
+      responses:
+        '200':
+          description: 'Ok. Show List of Tasks.'
+
+    
+    /users:
+        get:
+        operationId: R401
+        summary: 'R401: List the users'
+        description: 'Lists all the users.'
+        tags:
+            - 'M04: User Administration and Static pages'
+        parameters:
+            - name: search
+              in: query
+              description: 'Search term for filtering users by name, email, or username.'
+              schema:
+                type: string
+        responses:
+            '200':
+            description: 'OK. List of users retrieved successfully.'
+            '302':
+              description: 'Redirect if unauthorized.'
+              headers:
+                  Location:
+                  schema:
+                      type: string
+                  examples:
+                      302Redirect:
+                      description: 'Unauthorized access. Redirect to /home.'
+                      value: '/home'

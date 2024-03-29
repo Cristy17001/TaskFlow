@@ -1,0 +1,185 @@
+/* Actual content */
+body {
+    overflow: hidden;
+}
+
+.wrapper {
+    padding: 1rem;
+    overflow-y: auto;
+    width: 100%;
+    height: 100dvh;
+}
+.content {
+    margin-inline: auto;
+    width: 95%;
+}
+
+.options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border: 1px solid var(--light-light-grey);
+    padding-inline: 1rem;
+    width: fit-content;
+}
+
+.options > *:not(.container) {
+    border-left: 1px solid var(--light-light-grey);
+    padding-left: 1rem;
+}
+
+.options .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    height: min-content;
+    font-weight: bold;
+}
+
+.options hr {display: none;}
+
+.selected-option {
+    color: var(--blue-accent);
+    font-weight: 600;
+}
+
+.selected-option hr {
+    display: block;
+    margin: 0;
+    border: 1px solid var(--blue-accent);
+}
+
+.top-of-table {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.top-of-table input {
+    min-width: 15rem;
+    width: 15rem;
+    padding-left: 1rem;
+    border: 1px solid var(--light-light-grey)
+}
+
+.top-of-table button {
+    border-radius: 25px;
+    height: 2.5rem;
+}
+
+.top-of-table input {
+    border-radius: 25px 0 0 25px;
+    height: 2.5rem;
+}
+
+.top-of-table button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: fit-content;
+    background-color: var(--blue-accent);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+    padding-inline: 1rem;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.content table td {
+    border: 1px solid var(--light-light-grey);
+}
+
+.content table td, .content table th  {
+    padding: 0.3rem;
+    text-align: center;
+}
+
+.delete-project-btn {
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family-poppins);
+    width: fit-content;
+    margin-top: 1rem;
+}
+
+.search-form {
+    display: flex;
+    margin: 0;
+}
+
+.search-form button {
+    border-radius: 0 25px 25px 0 !important;
+}
+
+.search-form button svg {
+    width: 70%;
+    aspect-ratio: 1/1;
+}
+
+
+/* Modal to add task*/
+#modal-add-project {
+    width: 30%;
+    min-width: 350px;
+    border: none;
+    padding: 2rem;
+    border-radius: 40px;
+}
+
+#modal-add-project::backdrop {
+    background-color: black;
+    opacity: 30%;
+}
+
+#modal-add-project form {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-add-project form h2 {
+    text-align: center;
+}
+
+#modal-add-project form label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+#modal-add-project form textarea {
+    resize: none;
+    overflow-y: auto;
+    height: 4rem;
+}
+
+#modal-add-project input, #modal-add-project textarea, #modal-add-project select {
+    background-color: var(--light-blue);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+}
+
+#modal-add-project form input[type="submit"] {
+    margin-inline: auto;
+    width: 60%;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--light-purple);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-family: var(--font-family-poppins);
+    font-weight: 600;
+    margin-top: 2rem;
+    cursor: pointer;
+}

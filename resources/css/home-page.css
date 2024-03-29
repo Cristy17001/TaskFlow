@@ -1,0 +1,198 @@
+main {
+    display: flex;
+}
+
+nav {
+    width: 5vw;
+    min-width: fit-content;
+    height: 100dvh;
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+nav button:not(.selected):hover {
+    background-color: var(--light-grey);
+}
+
+.add-button, .add-button:hover {
+    background-color: var(--blue-accent) !important;
+}
+
+nav button {
+    width: 60%;
+}
+nav button svg {
+    width: 70%;
+    aspect-ratio: 1/1;
+}
+
+#logo-image {
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin-top: 1rem;
+}
+
+.top-funcs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 30%;
+}
+
+.bottom-funcs {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.divisor {
+    width: 90%;
+}
+
+nav .circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.avatar-image {
+    overflow: hidden;
+    width: 45px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.avatar-image > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.selected {
+    background-color: var(--light-purple) !important;
+}
+
+.expand-button {
+    width: 30px;
+    position: absolute;
+    right: -10px;
+    bottom: 1.2rem;
+    background-color: var(--light-purple);
+}
+
+
+/* Actual content */
+
+body {
+    overflow: hidden;
+}
+
+.wrapper {
+    padding: 1rem;
+    overflow-y: auto;
+    width: 100%;
+    height: 100dvh;
+}
+.content {
+    margin-inline: auto;
+    width: 95%;
+}
+
+.options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border: 1px solid var(--light-light-grey);
+    padding-inline: 1rem;
+    width: fit-content;
+}
+
+.options > *:not(.container) {
+    border-left: 1px solid var(--light-light-grey);
+    padding-left: 1rem;
+}
+
+.options .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    height: min-content;
+    font-weight: bold;
+}
+
+.options hr {display: none;}
+
+.selected-option {
+    color: var(--blue-accent);
+    font-weight: 600;
+}
+
+.selected-option hr {
+    display: block;
+    margin: 0;
+    border: 1px solid var(--blue-accent);
+}
+
+.top-of-table {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.top-of-table input {
+    min-width: 15rem;
+    width: 15rem;
+    padding-left: 1rem;
+    border: 1px solid var(--light-light-grey)
+}
+.top-of-table input, .top-of-table button {
+    border-radius: 25px;
+    height: 2.5rem;
+}
+
+.top-of-table button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+    width: fit-content;
+    background-color: var(--blue-accent);
+    color: white;
+    font-family: var(--font-family-poppins);
+    border: none;
+    padding-inline: 1rem;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.content table td {
+    border: 1px solid var(--light-light-grey);
+}
+
+.content table td, .content table th  {
+    padding: 12px;
+    text-align: left;
+}

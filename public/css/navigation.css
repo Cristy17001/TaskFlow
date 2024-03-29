@@ -1,0 +1,205 @@
+main {
+    display: flex;
+}
+
+.sidebar {
+    width: 5vw;
+    min-width: fit-content;
+    height: 100dvh;
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.2s ease;
+}
+
+.sidebar a {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.sidebar button:not(.selected):hover {
+    background-color: var(--light-grey);
+}
+
+.add-button, .add-button:hover {
+    background-color: var(--blue-accent) !important;
+}
+
+/* Optional: Style for better visibility */
+.sidebar a {
+    position: relative;
+    color: blue;
+    text-decoration: none;
+}
+
+.sidebar a:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    right: -200%;
+    transform: -translateX(100%);
+    background-color: var(--blue-accent);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.sidebar button svg {
+    width: 70%;
+    aspect-ratio: 1/1;
+    stroke: white;
+}
+
+#logo-image {
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin-top: 1rem;
+}
+
+.top-funcs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 30%;
+}
+
+.bottom-funcs {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.divisor {
+    width: 90%;
+}
+
+.sidebar .circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.avatar-image {
+    overflow: hidden;
+    width: 45px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.avatar-image > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.selected {
+    background-color: var(--light-purple) !important;
+}
+
+.sidebar .expand-button {
+    position: absolute;
+    right: -10px;
+    bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+    background-color: var(--light-purple);
+}
+
+#modal-create-project {
+    border-radius: 10px;
+}
+
+#modal-create-project > form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 35vw;
+    min-width: 400px;
+    aspect-ratio: 1 / 1;
+    font-weight: 600;
+    margin: 0;
+}
+
+#modal-create-project form h2 {
+    color: var(--blue-accent);
+    margin-inline: auto;
+}
+
+#modal-create-project form input, #modal-create-project form textarea {
+    font-family: var(--font-family-poppins);
+}
+
+#modal-create-project form input {
+    height: 2.5rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+#modal-create-project form textarea {
+    aspect-ratio: 3/1;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    overflow-y: auto;
+    resize: none;
+}
+
+#modal-create-project form input[type="submit"] {
+    width: 50%;
+    margin-inline: auto;
+    margin-top: 10%;
+    font-family: var(--font-family-poppins);
+    font-weight: 700;
+    color: white;
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+
+/* Utilitary class to make .sidebarigation disapear */
+
+.collapse_navbar {
+    width: 1.5vw; /* Adjust the width as needed */
+    min-width: 20px;
+}
+
+.collapse_navbar > *:not(.bottom-funcs) {
+    display: none;
+}
+
+
+.collapse_navbar a, .collapse_navbar hr, .collapse_navbar .avatar-image {
+    display: none;
+}
+/* .collapse_navbar > *:not(.expand-button) {
+    display: none;
+} */
+
+.collapse_navbar .expand-button {
+    display: block;
+    transform: rotate(0deg);
+}

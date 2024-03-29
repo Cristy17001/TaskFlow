@@ -1,0 +1,111 @@
+body {
+    overflow: hidden;
+}
+  
+.wrapper {
+    overflow-y: auto;
+    width: 100%;
+    height: 100dvh;
+}
+.content {
+    margin-inline: auto;
+    padding-bottom: 3rem;
+}
+
+.section-title {
+    background-color: var(--dark-purple);
+    width: 80%;
+    margin-inline: auto;
+    margin-top: 2rem;
+    text-align: center;
+    padding-block: 0.1rem;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.section-notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.notification-card {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--light-grey);
+    border-radius: 20px;
+    padding: 0.1rem 1.5rem;
+}
+
+.notification-card h3 {
+    color: #34A853;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.title-description p {
+    font-size: 0.9rem;
+    margin-top: 0;
+}
+
+.notification-card .time-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+} 
+
+.time b {
+    font-size: 0.9rem;
+}
+
+.notification-card .actions {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.btn-accept, .btn-delete, .btn-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    margin: 0;
+}
+
+.btn-delete, .btn-remove {
+    background-color: red;
+}
+
+.btn-accept {
+    background-color: #34A853;
+}
+.btn-remove svg, .btn-accept svg {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.btn-delete svg {
+    width: 60%;
+    aspect-ratio: 1/1;
+}
+
+.no-notifications {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--blue-accent);
+    text-align: center;
+    margin-top: 20dvh;
+}

@@ -1,0 +1,200 @@
+body {
+  overflow: hidden;
+}
+
+a {
+  width: min-content;
+}
+
+.wrapper {
+  padding: 1rem;
+  overflow-y: auto;
+  width: 100%;
+  height: 100dvh;
+}
+.content {
+  margin-inline: auto;
+  width: 95%;
+  padding-bottom: 3rem;
+}
+
+.content h1 {
+  font-size: 3rem;
+}
+
+.section-filtering {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.form-search-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-filtering form {margin: 0;}
+
+
+.section-filtering input,
+.section-filtering .btn-search,
+.form-filter-options select,
+.btn-create-project {
+  height: 2.5rem;
+}
+
+.section-filtering input {
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--light-grey);
+}
+
+.section-filtering .btn-search {
+  background-color: var(--blue-accent);
+  border-radius: 0 20px 20px 0px;
+  margin-left: -20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-filtering .btn-search svg {
+  width: 80%;
+  aspect-ratio: 1/1;
+}
+
+.form-filter-options select {
+  color: white;
+  background-color: var(--blue-accent);
+  font-size: 0.9rem;
+  padding-left: 0.5rem;
+  aspect-ratio: 4/1;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-create-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  background-color: var(--blue-accent);
+  border-radius: 20px;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-wrap: nowrap;
+  aspect-ratio: 4/1;
+  min-width: fit-content;
+  color: white;
+  font-family: var(--font-family-poppins);
+  font-weight: 600;
+}
+
+.btn-create-project svg {
+  min-width: 1.5rem;
+  width: 95%;
+  aspect-ratio: 1/1;
+}
+
+.section-project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-width: 13rem;
+  width: 15%;
+  height: 18rem;
+  background-image: url(../background-card.jpg);
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-card[data-archived="1"] {
+  filter: grayscale(100%);
+}
+
+.section-project-cards > a {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 14rem;
+}
+
+.section-project-cards > a:hover {
+  transform: scale(1.1);
+}
+
+.project-card h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: start;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.project-card p {
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.project-card .creator {
+  margin-right: auto;
+}
+
+/* START MARK FAVOURITE */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.container svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: all 0.3s;
+  fill: transparent;
+  stroke: white;
+}
+
+.container svg:hover {
+  transform: scale(1.1);
+}
+
+.container input:checked ~ svg {
+  fill: #ffeb49;
+  stroke: #ffeb49;
+}

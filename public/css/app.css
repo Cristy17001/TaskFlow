@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* Setup */
+:root {
+    --dark-purple: #4d1e81;
+    --light-purple: #7b61ff;
+    --dark-blue: #19013f;
+    --light-grey: #7a7a7a;
+    --light-light-grey: #d9d9d9;
+    --blue-accent: #3457cc;
+    --light-blue: #4285f4;
+    --font-family-poppins: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--font-family-poppins);
+    height: 100%;
+}
+
+a {text-decoration: none;}
+button:hover, input[type="submit"]:hover {cursor: pointer;}
+input[type="text"], input[type="email"], input[type="password"] {
+    height: 2.5rem;
+    font-family: var(--font-family-poppins);
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+form textarea {
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
